@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <ng-container *ngIf="customer; else noCustomer">
+        <h1>Información básica</h1>
+
+        <div class="mb-3">
+          <label class="form-label">Primer apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            disabled
+            [value]="customer.primerApellido"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Primer nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            disabled
+            [value]="customer.primerNombre"
+          />
+        </div>
+      </ng-container>
+      <ng-template #noCustomer>
+        <h2>{{ errorMessage }}</h2>
+      </ng-template>
+      <button
+        class="btn btn-primary col-12 rounded-pill btn-md btn-block"
+        (click)="backRef()"
+      >
+        <span style="font-size: smaller"> Volver</span>
+      </button>
+    </div>
+  </div>
+</div>
